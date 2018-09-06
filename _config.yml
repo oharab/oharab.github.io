@@ -1,5 +1,5 @@
-title: Merlot theme
-description: Merlot is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+title: Robotparade
+description: A geek from the north who thinks he's more punk than he actually is. How punk can you be after 40?
+show_downloads: false
+google_analytics: UA-89384825-1
 theme: jekyll-theme-merlot
