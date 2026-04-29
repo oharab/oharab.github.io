@@ -1,15 +1,14 @@
 ---
 layout: default
-title: Today's Session
+title: Next Session
 ---
 
-# Today's Session
-
 {% assign sessions = site.sessions | sort: 'name' | reverse %}
-{% assign latest = sessions | first %}
+{% assign next = sessions | first %}
 
-{% if latest %}
-{{ latest.content }}
+{% if next %}
+<p class="session-meta">Next up: <strong>{{ next.title }}</strong></p>
+{{ next.content }}
 {% else %}
 No sessions planned yet.
 {% endif %}

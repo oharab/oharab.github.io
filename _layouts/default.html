@@ -135,6 +135,16 @@
 
     strong { font-weight: 600; }
 
+    .session-meta {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.8rem;
+      background: #fff;
+      border-radius: 6px;
+      border-left: 3px solid #1a1a2e;
+    }
+
     @media (max-width: 480px) {
       table { font-size: 0.82rem; }
       th, td { padding: 0.4rem 0.5rem; }
@@ -145,7 +155,7 @@
   <header>
     <h1>Ben's Rehab</h1>
     <nav>
-      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Today</a>
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Next Session</a>
       <a href="/plan/" {% if page.url == "/plan/" %}class="active"{% endif %}>Plan</a>
       <a href="/history/" {% if page.url == "/history/" %}class="active"{% endif %}>History</a>
     </nav>
