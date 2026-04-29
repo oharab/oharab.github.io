@@ -78,9 +78,10 @@ function formatDate(str) {
 }
 
 const todayStr = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
+const requestedDate = new URLSearchParams(window.location.search).get('date');
 const todaySession  = sessions.find(s => s.date === todayStr);
 const futureSessions = sessions.filter(s => parseDate(s.date) > today).sort((a, b) => a.date.localeCompare(b.date));
-const active = todaySession || futureSessions[0] || null;
+const active = (requestedDate ? sessions.find(s => s.date === requestedDate) : null) || todaySession || futureSessions[0] || null;
 
 // ── Render ────────────────────────────────────────────────────────────────────
 
@@ -98,7 +99,7 @@ if (upcomingList.length > 0) {
   upcomingEl.innerHTML = `
     <details class="upcoming-box">
       <summary>Upcoming sessions (${upcomingList.length})</summary>
-      <ul>${upcomingList.map(s => `<li><a href="${s.url}">${s.title}</a> — ${formatDate(s.date)}</li>`).join('')}</ul>
+      <ul>${upcomingList.map(s => `<li><a href="/?date=${s.date}">${s.title}</a> — ${formatDate(s.date)}</li>`).join('')}</ul>
     </details>`;
 }
 
