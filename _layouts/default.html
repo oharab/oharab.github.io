@@ -25,6 +25,12 @@
       z-index: 10;
     }
 
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     header h1 {
       font-size: 1.1rem;
       font-weight: 600;
@@ -35,6 +41,7 @@
       gap: 0.5rem;
       margin-top: 0.5rem;
       flex-wrap: wrap;
+      align-items: center;
     }
 
     nav a {
@@ -49,6 +56,32 @@
     nav a.active, nav a:hover {
       background: rgba(160,196,255,0.15);
       color: #fff;
+    }
+
+    #gh-auth-btn {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      border: 1px solid rgba(160,196,255,0.4);
+      background: transparent;
+      color: #a0c4ff;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    #gh-auth-btn.connected {
+      border-color: rgba(100,220,130,0.5);
+      color: #64dc82;
+    }
+
+    #gh-auth-btn:disabled { opacity: 0.5; cursor: default; }
+
+    #saving-indicator {
+      display: none;
+      font-size: 0.75rem;
+      color: #a0c4ff;
+      margin-left: 0.5rem;
+      font-style: italic;
     }
 
     main {
@@ -91,10 +124,7 @@
     tr:last-child td { border-bottom: none; }
     tr:nth-child(even) td { background: #fafafa; }
 
-    ul, ol {
-      margin: 0.5rem 0 0.5rem 1.2rem;
-    }
-
+    ul, ol { margin: 0.5rem 0 0.5rem 1.2rem; }
     li { margin: 0.2rem 0; }
 
     .card {
@@ -161,13 +191,65 @@
       padding: 0.2rem 0;
     }
 
-    .upcoming-box ul {
-      margin: 0.6rem 0 0.2rem 1rem;
+    .upcoming-box ul { margin: 0.6rem 0 0.2rem 1rem; }
+    .upcoming-box a { color: #1a1a2e; }
+
+    /* Checkboxes */
+    input.done-check {
+      width: 1.4rem;
+      height: 1.4rem;
+      cursor: pointer;
+      accent-color: #2e7d32;
     }
 
-    .upcoming-box a {
-      color: #1a1a2e;
+    tr:has(.done-check:checked) td {
+      opacity: 0.5;
+      text-decoration: line-through;
+      text-decoration-color: #999;
     }
+
+    tr:has(.done-check:checked) td:last-child {
+      text-decoration: none;
+      opacity: 1;
+    }
+
+    /* Code modal */
+    #code-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      max-width: 340px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .modal-box h2 { border: none; margin-bottom: 0.5rem; }
+
+    .modal-code {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.2rem;
+      color: #1a1a2e;
+      background: #f0f0f0;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      display: block;
+    }
+
+    .modal-box p { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
+    .modal-box a { color: #1a1a2e; font-weight: 600; }
 
     @media (max-width: 480px) {
       table { font-size: 0.82rem; }
@@ -177,13 +259,27 @@
 </head>
 <body>
   <header>
-    <h1>Ben's Rehab</h1>
+    <div class="header-top">
+      <h1>Ben's Rehab</h1>
+      <button id="gh-auth-btn">Connect GitHub</button>
+    </div>
     <nav>
       <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Today</a>
       <a href="/plan/" {% if page.url == "/plan/" %}class="active"{% endif %}>Plan</a>
       <a href="/history/" {% if page.url == "/history/" %}class="active"{% endif %}>History</a>
+      <span id="saving-indicator">Saving…</span>
     </nav>
   </header>
+
+  <div id="code-modal">
+    <div class="modal-box">
+      <h2>Connect GitHub</h2>
+      <p>Enter this code at <a id="device-url" href="https://github.com/login/device" target="_blank">github.com/login/device</a></p>
+      <span class="modal-code" id="device-code"></span>
+      <p>The page should open automatically. Come back here once you've approved it.</p>
+    </div>
+  </div>
+
   <main>
     {{ content }}
   </main>
