@@ -15,10 +15,11 @@ Last updated: 2026-04-29
 | # | Objective | Success criteria | Status |
 |---|---|---|---|
 | 1 | Resolve or substantially improve right knee pain | Knee pain ≤ 1/10 during moderate running load | Not started |
-| 2 | Return to adult gymnastics classes | Attending classes without knee pain limiting participation | Not started |
-| 3 | Complete the London Marathon (Sunday 25 April 2027) | Cross the finish line | Not started |
-| 4 | Manage diastasis recti safely through the build | No doming/coning at any load reached in training | Not started |
-| 5 | Weight reduction as a side effect of training | Trending down — no specific target | Not started |
+| 2 | Complete the London Marathon (Sunday 25 April 2027) | Cross the finish line | Not started |
+| 3 | Manage diastasis recti safely through the build | No doming/coning at any load reached in training | Not started |
+| 4 | Weight reduction as a side effect of training | Trending down — no specific target | Not started |
+
+Gymnastics is not a separate objective — as the knee becomes more robust, gymnastics elements (floor conditioning, tumbling prep, bar/ring work, trampoline) are introduced progressively into sessions. No fixed timeline; readiness drives it.
 
 ---
 

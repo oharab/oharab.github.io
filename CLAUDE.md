@@ -118,10 +118,11 @@ Plan moves through three phases: rehab → general fitness base → run-specific
 
 Ranked:
 1. Resolve or substantially improve long-standing knee pain
-2. Return to adult gymnastics classes
-3. Complete the London Marathon, 12 months out
-4. Manage diastasis recti appropriately through the build
-5. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
+2. Complete the London Marathon, 12 months out
+3. Manage diastasis recti appropriately through the build
+4. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
+
+Gymnastics is not a standalone goal with a milestone. As the knee becomes more robust, gymnastics elements should be woven progressively into sessions — floor conditioning, basic tumbling prep, bar and ring work, trampoline. The venue makes this natural. Introduce gymnastics content when knee stability and glute strength support it, not on a fixed timeline.
 
 ## Constraints
 

@@ -17,10 +17,11 @@ type: user
 
 ## Goals (ranked)
 1. Resolve or substantially improve right knee pain
-2. Return to adult gymnastics classes
-3. Complete London Marathon, Sunday 25 April 2027
-4. Manage diastasis recti through the build
-5. Weight reduction as a side effect (no targets)
+2. Complete London Marathon, Sunday 25 April 2027
+3. Manage diastasis recti through the build
+4. Weight reduction as a side effect (no targets)
+
+Gymnastics is not a milestone goal. As the knee strengthens, gymnastics elements should be woven progressively into sessions — floor conditioning, tumbling prep, bar/ring work, trampoline. Readiness drives introduction, not the calendar.
 
 ## Equipment and access
 - Training venue: fully equipped gymnastics club (Mon/Thu/Sat)
