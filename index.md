@@ -122,51 +122,87 @@ function injectInteractivity() {
 
 // ── Timer ─────────────────────────────────────────────────────────────────────
 
+const REST_SECS = 10;
 let timerInterval = null;
+let timerQueue = [];   // array of { secs, label } phases
+let timerPhase = 0;
 let timerRemaining = 0;
-let timerAudio = null;
 
-function parseDuration(text) {
-  // Match patterns like "60 sec", "20 sec each side", "2 min", "1 min 30 sec"
-  let secs = 0;
-  const mins = text.match(/(\d+)\s*min/);
-  const sec  = text.match(/(\d+)\s*sec/);
-  if (mins) secs += parseInt(mins[1]) * 60;
-  if (sec)  secs += parseInt(sec[1]);
-  return secs;
+function parseSecs(text) {
+  let s = 0;
+  const m = text.match(/(\d+)\s*min/);
+  const sec = text.match(/(\d+)\s*sec/);
+  if (m) s += parseInt(m[1]) * 60;
+  if (sec) s += parseInt(sec[1]);
+  return s;
+}
+
+function buildQueue(text, exerciseLabel) {
+  // Determine duration and rep count from cell text
+  const secs = parseSecs(text);
+  if (!secs) return [];
+
+  // "2 × 20 sec" or "2x20 sec"
+  const setsMatch = text.match(/(\d+)\s*[×x]\s*\d/);
+  // "each side" or "each leg" or "each arm"
+  const eachSide = /each\s*(side|leg|arm)/i.test(text);
+
+  const reps = setsMatch ? parseInt(setsMatch[1]) : eachSide ? 2 : 1;
+
+  const phases = [];
+  for (let i = 0; i < reps; i++) {
+    const repLabel = reps > 1
+      ? (eachSide ? `${exerciseLabel} — ${i === 0 ? 'Left' : 'Right'} side` : `${exerciseLabel} — Set ${i + 1} of ${reps}`)
+      : exerciseLabel;
+    phases.push({ secs, label: repLabel, type: 'work' });
+    if (i < reps - 1) phases.push({ secs: REST_SECS, label: 'Rest / swap over', type: 'rest' });
+  }
+  return phases;
 }
 
 function injectTimers() {
   if (!active) return;
   contentEl.querySelectorAll('td').forEach(td => {
     const text = td.textContent.trim();
-    // Skip cells that are YouTube URLs, checkboxes, or empty
     if (!text || text === '[ ]' || text === '[x]') return;
     if (/^https?:\/\//.test(text)) return;
-    const secs = parseDuration(text);
-    if (!secs) return;
+    if (!parseSecs(text)) return;
+
+    const row = td.closest('tr');
+    const exerciseLabel = row ? row.querySelector('td')?.textContent.trim() : '';
+    const queue = buildQueue(text, exerciseLabel);
+    if (!queue.length) return;
+
     const btn = document.createElement('button');
     btn.className = 'timer-btn';
     btn.textContent = '⏱';
-    btn.setAttribute('aria-label', `Start ${secs}s timer`);
-    btn.dataset.seconds = secs;
-    // Get exercise name from first cell of the same row
-    const row = td.closest('tr');
-    btn.dataset.label = row ? row.querySelector('td')?.textContent.trim() : '';
-    btn.addEventListener('click', () => startTimer(secs, btn.dataset.label));
+    btn.setAttribute('aria-label', 'Start timer');
+    btn.addEventListener('click', () => runQueue(queue));
     td.appendChild(document.createTextNode(' '));
     td.appendChild(btn);
   });
 }
 
-function startTimer(totalSecs, label) {
+function runQueue(queue) {
   clearInterval(timerInterval);
-  timerRemaining = totalSecs;
+  timerQueue = queue;
+  timerPhase = 0;
+  startPhase();
+}
+
+function startPhase() {
+  const phase = timerQueue[timerPhase];
+  timerRemaining = phase.secs;
+
   const overlay  = document.getElementById('timer-overlay');
   const display  = document.getElementById('timer-display');
   const labelEl  = document.getElementById('timer-label');
-  labelEl.textContent = label;
+  const phaseEl  = document.getElementById('timer-phase');
+
   overlay.style.display = 'flex';
+  labelEl.textContent = phase.label;
+  phaseEl.textContent = phase.type === 'rest' ? 'REST' : `${timerPhase / 2 + 1 | 0} of ${Math.ceil(timerQueue.length / 2)}`;
+  phaseEl.className = phase.type === 'rest' ? 'timer-phase rest' : 'timer-phase';
   display.textContent = formatTime(timerRemaining);
 
   timerInterval = setInterval(() => {
@@ -175,7 +211,13 @@ function startTimer(totalSecs, label) {
     if (timerRemaining <= 0) {
       clearInterval(timerInterval);
       beepAndVibrate();
-      display.textContent = 'Done!';
+      timerPhase++;
+      if (timerPhase < timerQueue.length) {
+        setTimeout(startPhase, 800);
+      } else {
+        // All phases done — close after brief pause
+        setTimeout(stopTimer, 1500);
+      }
     }
   }, 1000);
 }
@@ -186,8 +228,8 @@ function stopTimer() {
 }
 
 function formatTime(secs) {
-  const m = Math.floor(secs / 60);
-  const s = secs % 60;
+  const m = Math.floor(Math.max(secs, 0) / 60);
+  const s = Math.max(secs, 0) % 60;
   return m > 0 ? `${m}:${String(s).padStart(2, '0')}` : `${s}s`;
 }
 

@@ -215,6 +215,18 @@
       text-align: center;
     }
 
+    #timer-phase {
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64dc82;
+    }
+
+    #timer-phase.rest {
+      color: #ffb347;
+    }
+
     #timer-label {
       color: #a0c4ff;
       font-size: 1.1rem;
@@ -407,6 +419,7 @@
 
   <div id="timer-overlay">
     <div class="timer-box">
+      <div id="timer-phase"></div>
       <div id="timer-label"></div>
       <div id="timer-display">0:00</div>
       <button id="timer-cancel">Cancel</button>
