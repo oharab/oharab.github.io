@@ -194,6 +194,69 @@
     .upcoming-box ul { margin: 0.6rem 0 0.2rem 1rem; }
     .upcoming-box a { color: #1a1a2e; }
 
+    /* Timer overlay */
+    #timer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #1a1a2e;
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .timer-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    #timer-label {
+      color: #a0c4ff;
+      font-size: 1.1rem;
+      font-weight: 500;
+      max-width: 280px;
+    }
+
+    #timer-display {
+      color: #fff;
+      font-size: 6rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    #timer-cancel {
+      margin-top: 1rem;
+      padding: 0.7rem 2.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.3);
+      background: transparent;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    #timer-cancel:hover { background: rgba(255,255,255,0.1); }
+
+    /* Timer trigger button */
+    .timer-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0 0.2rem;
+      vertical-align: middle;
+      opacity: 0.6;
+    }
+
+    .timer-btn:hover { opacity: 1; }
+
     /* Demo links */
     .demo-link {
       display: inline-block;
@@ -341,6 +404,14 @@
       <span id="saving-indicator">Saving…</span>
     </nav>
   </header>
+
+  <div id="timer-overlay">
+    <div class="timer-box">
+      <div id="timer-label"></div>
+      <div id="timer-display">0:00</div>
+      <button id="timer-cancel">Cancel</button>
+    </div>
+  </div>
 
   <div id="token-modal">
     <div class="modal-box">

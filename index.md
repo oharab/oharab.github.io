@@ -115,8 +115,103 @@ if (active) {
 function injectInteractivity() {
   injectCheckboxes();
   injectDemoLinks();
+  injectTimers();
   injectLogInputs();
   injectKneeRatings();
+}
+
+// ── Timer ─────────────────────────────────────────────────────────────────────
+
+let timerInterval = null;
+let timerRemaining = 0;
+let timerAudio = null;
+
+function parseDuration(text) {
+  // Match patterns like "60 sec", "20 sec each side", "2 min", "1 min 30 sec"
+  let secs = 0;
+  const mins = text.match(/(\d+)\s*min/);
+  const sec  = text.match(/(\d+)\s*sec/);
+  if (mins) secs += parseInt(mins[1]) * 60;
+  if (sec)  secs += parseInt(sec[1]);
+  return secs;
+}
+
+function injectTimers() {
+  if (!active) return;
+  contentEl.querySelectorAll('td').forEach(td => {
+    const text = td.textContent.trim();
+    // Skip cells that are YouTube URLs, checkboxes, or empty
+    if (!text || text === '[ ]' || text === '[x]') return;
+    if (/^https?:\/\//.test(text)) return;
+    const secs = parseDuration(text);
+    if (!secs) return;
+    const btn = document.createElement('button');
+    btn.className = 'timer-btn';
+    btn.textContent = '⏱';
+    btn.setAttribute('aria-label', `Start ${secs}s timer`);
+    btn.dataset.seconds = secs;
+    // Get exercise name from first cell of the same row
+    const row = td.closest('tr');
+    btn.dataset.label = row ? row.querySelector('td')?.textContent.trim() : '';
+    btn.addEventListener('click', () => startTimer(secs, btn.dataset.label));
+    td.appendChild(document.createTextNode(' '));
+    td.appendChild(btn);
+  });
+}
+
+function startTimer(totalSecs, label) {
+  clearInterval(timerInterval);
+  timerRemaining = totalSecs;
+  const overlay  = document.getElementById('timer-overlay');
+  const display  = document.getElementById('timer-display');
+  const labelEl  = document.getElementById('timer-label');
+  labelEl.textContent = label;
+  overlay.style.display = 'flex';
+  display.textContent = formatTime(timerRemaining);
+
+  timerInterval = setInterval(() => {
+    timerRemaining--;
+    display.textContent = formatTime(timerRemaining);
+    if (timerRemaining <= 0) {
+      clearInterval(timerInterval);
+      beepAndVibrate();
+      display.textContent = 'Done!';
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  clearInterval(timerInterval);
+  document.getElementById('timer-overlay').style.display = 'none';
+}
+
+function formatTime(secs) {
+  const m = Math.floor(secs / 60);
+  const s = secs % 60;
+  return m > 0 ? `${m}:${String(s).padStart(2, '0')}` : `${s}s`;
+}
+
+function beepAndVibrate() {
+  // Vibrate: 3 short pulses
+  if (navigator.vibrate) navigator.vibrate([200, 100, 200, 100, 200]);
+
+  // Beep via Web Audio API
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    [0, 0.3, 0.6].forEach(offset => {
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.frequency.value = 880;
+      gain.gain.setValueAtTime(0.4, ctx.currentTime + offset);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + offset + 0.25);
+      osc.start(ctx.currentTime + offset);
+      osc.stop(ctx.currentTime + offset + 0.25);
+    });
+  } catch (e) {
+    console.warn('Audio not available:', e);
+  }
 }
 
 function injectDemoLinks() {
@@ -267,4 +362,5 @@ document.getElementById('gh-auth-btn').addEventListener('click', () => {
 document.getElementById('token-save').addEventListener('click', saveToken);
 document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') saveToken(); });
 document.getElementById('token-cancel').addEventListener('click', hideTokenModal);
+document.getElementById('timer-cancel').addEventListener('click', stopTimer);
 </script>
