@@ -13,7 +13,8 @@ This is not a software project. It is a personal rehab and marathon training pla
 
 ## How to assist in this repo
 
-- Always read `CLAUDE.md` and `plan.md` before generating session plans or answering training questions.
+- Always read `CLAUDE.md`, `plan.md`, and `memory/MEMORY.md` before generating session plans or answering training questions.
+- **Keep documentation updated.** Whenever a decision is made or a feature is built, update `CLAUDE.md`, `memory/project.md`, and/or `plan.md` in the same commit — not as a follow-up.
 - Always respect the medical scope section: defer to clinicians on anything new, sharp, or worsening. The clinician always wins over any plan in this file.
 - When generating session plans, honour all constraints (days, session length, equipment, phase gates) listed in the steering document.
 - Fill `<!-- placeholder -->` fields when the user provides the missing information — update in place rather than appending duplicates.
