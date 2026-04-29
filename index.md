@@ -131,28 +131,30 @@ function injectCheckboxes() {
   });
 }
 
-async function handleCheck(cb) {
+let commitTimer = null;
+
+function handleCheck(cb) {
   if (!getToken()) {
     cb.checked = !cb.checked;
     alert('Connect GitHub first using the button in the header.');
     return;
   }
-
-  cb.disabled = true;
   showSaving(true);
+  clearTimeout(commitTimer);
+  commitTimer = setTimeout(commitCheckboxState, 1200);
+}
 
+async function commitCheckboxState() {
   try {
-    // Fetch current file from GitHub API (gives us both raw content and SHA)
+    // Fetch current file — always get a fresh SHA
     const metaRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SESSIONS_PATH}/${active.filename}`, {
       headers: { 'Authorization': `token ${getToken()}`, 'Accept': 'application/vnd.github+json' }
     });
     if (metaRes.status === 401) { clearToken(); renderAuthButton(); throw new Error('Token expired — reconnect GitHub'); }
     const meta = await metaRes.json();
 
-    // Decode current raw markdown from the API response
+    // Decode raw markdown and apply current DOM checkbox states
     let raw = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
-
-    // Rebuild checkbox states from current DOM
     const allBoxes = [...contentEl.querySelectorAll('.done-check')];
     let idx = 0;
     raw = raw.replace(/\[ \]|\[x\]/g, () => {
@@ -160,7 +162,6 @@ async function handleCheck(cb) {
       return box ? (box.checked ? '[x]' : '[ ]') : '[ ]';
     });
 
-    // Commit updated file
     const commitRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SESSIONS_PATH}/${active.filename}`, {
       method: 'PUT',
       headers: { 'Authorization': `token ${getToken()}`, 'Accept': 'application/vnd.github+json', 'Content-Type': 'application/json' },
@@ -173,11 +174,9 @@ async function handleCheck(cb) {
 
     if (!commitRes.ok) throw new Error(`Commit failed: ${commitRes.status}`);
   } catch (e) {
-    cb.checked = !cb.checked;
     console.error(e);
     alert(`Could not save: ${e.message}`);
   } finally {
-    cb.disabled = false;
     showSaving(false);
   }
 }
