@@ -213,8 +213,8 @@
       opacity: 1;
     }
 
-    /* Code modal */
-    #code-modal {
+    /* Token modal */
+    #token-modal {
       display: none;
       position: fixed;
       inset: 0;
@@ -231,25 +231,42 @@
       padding: 1.5rem;
       max-width: 340px;
       width: 100%;
-      text-align: center;
     }
 
-    .modal-box h2 { border: none; margin-bottom: 0.5rem; }
-
-    .modal-code {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: 0.2rem;
-      color: #1a1a2e;
-      background: #f0f0f0;
-      border-radius: 8px;
-      padding: 0.5rem 1rem;
-      margin: 1rem 0;
-      display: block;
-    }
-
-    .modal-box p { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
+    .modal-box h2 { border: none; margin-bottom: 0.75rem; font-size: 1.1rem; }
+    .modal-box p { font-size: 0.88rem; color: #555; margin-bottom: 0.6rem; }
     .modal-box a { color: #1a1a2e; font-weight: 600; }
+
+    #token-input {
+      width: 100%;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      margin: 0.75rem 0 1rem;
+      font-family: monospace;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+
+    .modal-actions button {
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background: #f5f5f5;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .modal-actions button.primary {
+      background: #1a1a2e;
+      color: #fff;
+      border-color: #1a1a2e;
+    }
 
     @media (max-width: 480px) {
       table { font-size: 0.82rem; }
@@ -271,12 +288,16 @@
     </nav>
   </header>
 
-  <div id="code-modal">
+  <div id="token-modal">
     <div class="modal-box">
       <h2>Connect GitHub</h2>
-      <p>Enter this code at <a id="device-url" href="https://github.com/login/device" target="_blank">github.com/login/device</a></p>
-      <span class="modal-code" id="device-code"></span>
-      <p>The page should open automatically. Come back here once you've approved it.</p>
+      <p>Paste a GitHub Personal Access Token with <strong>Contents: read &amp; write</strong> permission for this repo.</p>
+      <p><a href="https://github.com/settings/personal-access-tokens/new" target="_blank">Create a fine-grained token →</a></p>
+      <input type="password" id="token-input" placeholder="github_pat_…" autocomplete="off">
+      <div class="modal-actions">
+        <button id="token-cancel">Cancel</button>
+        <button id="token-save" class="primary">Save</button>
+      </div>
     </div>
   </div>
 

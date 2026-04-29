@@ -8,7 +8,6 @@ title: Today
 <div id="session-content"></div>
 
 <script>
-const GITHUB_CLIENT_ID = 'Ov23li7BSz5K4QRJxf2b';
 const GITHUB_REPO = 'oharab/oharab.github.io';
 const SESSIONS_PATH = '_sessions';
 
@@ -44,56 +43,23 @@ function renderAuthButton() {
   }
 }
 
-async function startDeviceFlow() {
-  const btn = document.getElementById('gh-auth-btn');
-  btn.textContent = 'Connecting…';
-  btn.disabled = true;
-
-  try {
-    const res = await fetch('https://github.com/login/device/code', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ client_id: GITHUB_CLIENT_ID, scope: 'public_repo' })
-    });
-    const data = await res.json();
-
-    showCodeModal(data.user_code, data.verification_uri);
-    window.open(data.verification_uri, '_blank');
-
-    const token = await pollForToken(data.device_code, data.interval || 5);
-    setToken(token);
-    hideCodeModal();
-    renderAuthButton();
-    injectCheckboxes();
-  } catch (e) {
-    alert('GitHub connection failed. Please try again.');
-    btn.disabled = false;
-    renderAuthButton();
-  }
+function showTokenModal() {
+  document.getElementById('token-modal').style.display = 'flex';
+  document.getElementById('token-input').value = '';
+  document.getElementById('token-input').focus();
 }
 
-async function pollForToken(deviceCode, interval) {
-  while (true) {
-    await new Promise(r => setTimeout(r, interval * 1000));
-    const res = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ client_id: GITHUB_CLIENT_ID, device_code: deviceCode, grant_type: 'urn:ietf:params:oauth:grant-type:device_code' })
-    });
-    const data = await res.json();
-    if (data.access_token) return data.access_token;
-    if (data.error === 'access_denied') throw new Error('Access denied');
-  }
+function hideTokenModal() {
+  document.getElementById('token-modal').style.display = 'none';
 }
 
-function showCodeModal(code, url) {
-  document.getElementById('device-code').textContent = code;
-  document.getElementById('device-url').href = url;
-  document.getElementById('code-modal').style.display = 'flex';
-}
-
-function hideCodeModal() {
-  document.getElementById('code-modal').style.display = 'none';
+function saveToken() {
+  const t = document.getElementById('token-input').value.trim();
+  if (!t) return;
+  setToken(t);
+  hideTokenModal();
+  renderAuthButton();
+  injectCheckboxes();
 }
 
 // ── Date logic ────────────────────────────────────────────────────────────────
@@ -230,7 +196,11 @@ document.getElementById('gh-auth-btn').addEventListener('click', () => {
     clearToken();
     renderAuthButton();
   } else {
-    startDeviceFlow();
+    showTokenModal();
   }
 });
+
+document.getElementById('token-save').addEventListener('click', saveToken);
+document.getElementById('token-input').addEventListener('keydown', e => { if (e.key === 'Enter') saveToken(); });
+document.getElementById('token-cancel').addEventListener('click', hideTokenModal);
 </script>
