@@ -22,6 +22,8 @@ This is not a software project. It is a personal rehab and marathon training pla
 
 ## Creating a new session file
 
+**Always run `git pull --rebase` before creating a new session file.** Ben ticks off exercises and fills in the session log directly on the site, which commits back to the repo. The local copy will be behind if any session has been used.
+
 Session files live in `_sessions/` and are automatically picked up by the Jekyll site at `rehab.robotparade.co.uk`.
 
 **Filename format:** `_sessions/YYYY-MM-DD-session-N.md` (e.g. `_sessions/2026-05-01-session-2.md`)
@@ -34,7 +36,7 @@ date: YYYY-MM-DD
 ---
 ```
 
-**Exercise tables must include a `Done` column** with `[ ]` for every exercise row. This powers the checkbox system on the site. Example:
+**Exercise tables must include a `Done` column** with `[ ]` for every exercise row. This powers the checkbox system on the site:
 
 ```markdown
 | Exercise | Sets × Reps | Load | Notes | Done |
@@ -44,11 +46,40 @@ date: YYYY-MM-DD
 
 - The `Done` column must be the last column in every exercise table.
 - Use `[ ]` (not done) or `[x]` (done) — exact format, including spaces.
-- Non-exercise tables (e.g. session log, assessment checks) should also include a `Done` column where ticking makes sense.
-- Tables without a `Done` column (e.g. the session log key/value table) are fine — they just won't have checkboxes.
+- Assessment check tables (e.g. Block 3 diastasis checks) should also have a `Done` column.
+
+**Every session must end with this session log table** — the Value column is editable on the site:
+
+```markdown
+## Session log
+
+*(Fill in after the session)*
+
+| Field | Value |
+|---|---|
+| Date | YYYY-MM-DD |
+| Exercises completed | |
+| Any skipped / modified | |
+| RPE (1–10) | |
+| Right knee during (0–10) | |
+| Right knee 24h after (0–10) | |
+| Diastasis observations | |
+| Notes / next time | |
+```
+
+- The table headers must be exactly `Field` and `Value` — the site detects this to make the Value cells editable.
+- Leave Value cells empty (just `| |`) — Ben fills them in on the site after the session.
+- Do not add a `Done` column to this table.
+
+**Knee rating prompts** use this exact format — the `\_\_` becomes an editable number field on the site:
+
+```markdown
+**After this block, rate right knee:** \_\_ / 10
+```
 
 **After creating the file, commit and push:**
 ```
+git pull --rebase
 git add _sessions/YYYY-MM-DD-session-N.md
 git commit -m "feat: add session N — brief description"
 git push
