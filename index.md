@@ -113,11 +113,26 @@ if (active) {
 // ── Interactivity ─────────────────────────────────────────────────────────────
 
 function injectInteractivity() {
+  tagTableColumns();
   injectCheckboxes();
   injectDemoLinks();
   injectTimers();
   injectLogInputs();
   injectKneeRatings();
+}
+
+function tagTableColumns() {
+  contentEl.querySelectorAll('table').forEach(table => {
+    const headers = [...table.querySelectorAll('th')];
+    headers.forEach((th, i) => {
+      const key = th.textContent.trim().toLowerCase();
+      th.dataset.col = key;
+      table.querySelectorAll('tr').forEach(row => {
+        const cells = row.querySelectorAll('th, td');
+        if (cells[i]) cells[i].dataset.col = key;
+      });
+    });
+  });
 }
 
 // ── Timer ─────────────────────────────────────────────────────────────────────

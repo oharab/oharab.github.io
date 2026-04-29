@@ -397,9 +397,23 @@
       border-color: #1a1a2e;
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       table { font-size: 0.82rem; }
       th, td { padding: 0.4rem 0.5rem; }
+
+      /* Hide lowest-priority columns on mobile — cues, notes, load */
+      [data-col="cues"],
+      [data-col="notes"],
+      [data-col="what to do"],
+      [data-col="what to note"],
+      [data-col="load"] { display: none; }
+
+      /* Constrain the exercise/check name column so it doesn't blow out */
+      [data-col="exercise"],
+      [data-col="check"] {
+        max-width: 8rem;
+        word-break: break-word;
+      }
     }
   </style>
 </head>
