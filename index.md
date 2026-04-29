@@ -111,7 +111,7 @@ function formatDate(str) {
   return new Date(y, m - 1, d).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
 }
 
-const todayStr = today.toISOString().slice(0, 10);
+const todayStr = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
 const todaySession  = sessions.find(s => s.date === todayStr);
 const futureSessions = sessions.filter(s => parseDate(s.date) > today).sort((a, b) => a.date.localeCompare(b.date));
 const active = todaySession || futureSessions[0] || null;
