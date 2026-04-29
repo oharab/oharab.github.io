@@ -59,7 +59,7 @@ function saveToken() {
   setToken(t);
   hideTokenModal();
   renderAuthButton();
-  injectCheckboxes();
+  injectInteractivity();
 }
 
 // ── Date logic ────────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ function formatDate(str) {
 
 const todayStr = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
 const requestedDate = new URLSearchParams(window.location.search).get('date');
-const todaySession  = sessions.find(s => s.date === todayStr);
+const todaySession = sessions.find(s => s.date === todayStr);
 const futureSessions = sessions.filter(s => parseDate(s.date) > today).sort((a, b) => a.date.localeCompare(b.date));
 const active = (requestedDate ? sessions.find(s => s.date === requestedDate) : null) || todaySession || futureSessions[0] || null;
 
@@ -110,57 +110,114 @@ if (active) {
   contentEl.innerHTML = '<p>No sessions planned yet.</p>';
 }
 
-// ── Checkboxes ────────────────────────────────────────────────────────────────
+// ── Interactivity ─────────────────────────────────────────────────────────────
+
+function injectInteractivity() {
+  injectCheckboxes();
+  injectLogInputs();
+  injectKneeRatings();
+}
 
 function injectCheckboxes() {
   if (!active) return;
-  const cells = contentEl.querySelectorAll('td');
-  let checkboxIndex = 0;
-
-  cells.forEach(td => {
+  let idx = 0;
+  contentEl.querySelectorAll('td').forEach(td => {
     const text = td.textContent.trim();
     if (text !== '[ ]' && text !== '[x]') return;
     const checked = text === '[x]';
-    const idx = checkboxIndex++;
-    td.innerHTML = `<input type="checkbox" class="done-check" data-index="${idx}" ${checked ? 'checked' : ''} aria-label="Mark done">`;
+    td.innerHTML = `<input type="checkbox" class="done-check" data-index="${idx++}" ${checked ? 'checked' : ''} aria-label="Mark done">`;
     td.style.textAlign = 'center';
     td.style.width = '2.5rem';
   });
-
   contentEl.querySelectorAll('.done-check').forEach(cb => {
-    cb.addEventListener('change', () => handleCheck(cb));
+    cb.addEventListener('change', scheduleCommit);
   });
 }
 
+function injectLogInputs() {
+  if (!active) return;
+  // Find the session log table: has headers "Field" and "Value"
+  contentEl.querySelectorAll('table').forEach(table => {
+    const headers = [...table.querySelectorAll('th')].map(th => th.textContent.trim());
+    if (!headers.includes('Field') || !headers.includes('Value')) return;
+    table.querySelectorAll('tr').forEach(row => {
+      const cells = row.querySelectorAll('td');
+      if (cells.length < 2) return;
+      const fieldName = cells[0].textContent.trim();
+      const currentVal = cells[1].textContent.trim();
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.className = 'log-input';
+      input.value = currentVal;
+      input.dataset.field = fieldName;
+      input.setAttribute('aria-label', fieldName);
+      cells[1].textContent = '';
+      cells[1].appendChild(input);
+      input.addEventListener('change', scheduleCommit);
+    });
+  });
+}
+
+function injectKneeRatings() {
+  if (!active) return;
+  contentEl.querySelectorAll('p, li').forEach(el => {
+    if (!el.innerHTML.includes('rate right knee')) return;
+    // Rendered from \_\_ — shows as __ in HTML text
+    if (!el.innerHTML.includes('__')) return;
+    el.innerHTML = el.innerHTML.replace(
+      '__',
+      `<input type="number" class="knee-input" min="0" max="10" placeholder="—" aria-label="Knee pain rating">`
+    );
+    el.querySelector('.knee-input').addEventListener('change', scheduleCommit);
+  });
+}
+
+// ── Commit ────────────────────────────────────────────────────────────────────
+
 let commitTimer = null;
 
-function handleCheck(cb) {
+function scheduleCommit() {
   if (!getToken()) {
-    cb.checked = !cb.checked;
-    alert('Connect GitHub first using the button in the header.');
+    showTokenModal();
     return;
   }
   showSaving(true);
   clearTimeout(commitTimer);
-  commitTimer = setTimeout(commitCheckboxState, 1200);
+  commitTimer = setTimeout(commitSessionState, 1200);
 }
 
-async function commitCheckboxState() {
+async function commitSessionState() {
   try {
-    // Fetch current file — always get a fresh SHA
     const metaRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SESSIONS_PATH}/${active.filename}`, {
       headers: { 'Authorization': `token ${getToken()}`, 'Accept': 'application/vnd.github+json' }
     });
     if (metaRes.status === 401) { clearToken(); renderAuthButton(); throw new Error('Token expired — reconnect GitHub'); }
     const meta = await metaRes.json();
 
-    // Decode raw markdown and apply current DOM checkbox states
     let raw = decodeURIComponent(escape(atob(meta.content.replace(/\n/g, ''))));
+
+    // 1. Checkboxes — replace [ ] / [x] in order from DOM
     const allBoxes = [...contentEl.querySelectorAll('.done-check')];
-    let idx = 0;
+    let cbIdx = 0;
     raw = raw.replace(/\[ \]|\[x\]/g, () => {
-      const box = allBoxes[idx++];
+      const box = allBoxes[cbIdx++];
       return box ? (box.checked ? '[x]' : '[ ]') : '[ ]';
+    });
+
+    // 2. Session log — replace each value cell by field name
+    contentEl.querySelectorAll('.log-input').forEach(input => {
+      const field = input.dataset.field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const val = input.value.trim();
+      raw = raw.replace(
+        new RegExp(`(\\|\\s*${field}\\s*\\|\\s*)([^|]*)(\\s*\\|)`),
+        (_, pre, _old, post) => `${pre}${val}${post}`
+      );
+    });
+
+    // 3. Knee ratings — replace \_\_ with typed value, restore if empty
+    contentEl.querySelectorAll('.knee-input').forEach(input => {
+      const val = input.value.trim();
+      raw = raw.replace(/\\_\\_(\s*\/\s*10)/, `${val || '\\_\\_'}$1`);
     });
 
     const commitRes = await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${SESSIONS_PATH}/${active.filename}`, {
@@ -189,15 +246,11 @@ function showSaving(on) {
 // ── Init ──────────────────────────────────────────────────────────────────────
 
 renderAuthButton();
-injectCheckboxes();
+injectInteractivity();
 
 document.getElementById('gh-auth-btn').addEventListener('click', () => {
-  if (getToken()) {
-    clearToken();
-    renderAuthButton();
-  } else {
-    showTokenModal();
-  }
+  if (getToken()) { clearToken(); renderAuthButton(); }
+  else { showTokenModal(); }
 });
 
 document.getElementById('token-save').addEventListener('click', saveToken);
