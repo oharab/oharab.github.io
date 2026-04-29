@@ -20,6 +20,42 @@ This is not a software project. It is a personal rehab and marathon training pla
 - When logging a completed session, append it under `## Current block` in the tracking format specified in the document.
 - Do not invent values for placeholder fields; ask the user to supply them.
 
+## Creating a new session file
+
+Session files live in `_sessions/` and are automatically picked up by the Jekyll site at `rehab.robotparade.co.uk`.
+
+**Filename format:** `_sessions/YYYY-MM-DD-session-N.md` (e.g. `_sessions/2026-05-01-session-2.md`)
+
+**Required front matter:**
+```yaml
+---
+title: "Session N — Day Date Month Year"
+date: YYYY-MM-DD
+---
+```
+
+**Exercise tables must include a `Done` column** with `[ ]` for every exercise row. This powers the checkbox system on the site. Example:
+
+```markdown
+| Exercise | Sets × Reps | Load | Notes | Done |
+|---|---|---|---|---|
+| Glute bridge | 2 × 10 | Bodyweight | Drive through heels. | [ ] |
+```
+
+- The `Done` column must be the last column in every exercise table.
+- Use `[ ]` (not done) or `[x]` (done) — exact format, including spaces.
+- Non-exercise tables (e.g. session log, assessment checks) should also include a `Done` column where ticking makes sense.
+- Tables without a `Done` column (e.g. the session log key/value table) are fine — they just won't have checkboxes.
+
+**After creating the file, commit and push:**
+```
+git add _sessions/YYYY-MM-DD-session-N.md
+git commit -m "feat: add session N — brief description"
+git push
+```
+
+GitHub Pages rebuilds automatically. The new session will appear on the site within ~60 seconds.
+
 ---
 
 # Rehab and fitness plan
