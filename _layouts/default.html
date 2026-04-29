@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding-bottom: 2rem;
+    }
+
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #a0c4ff;
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      border: 1px solid rgba(160,196,255,0.3);
+    }
+
+    nav a.active, nav a:hover {
+      background: rgba(160,196,255,0.15);
+      color: #fff;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    h1 { font-size: 1.4rem; margin: 1.2rem 0 0.6rem; }
+    h2 { font-size: 1.15rem; margin: 1.4rem 0 0.5rem; color: #1a1a2e; border-bottom: 2px solid #e0e0e0; padding-bottom: 0.3rem; }
+    h3 { font-size: 1rem; margin: 1rem 0 0.4rem; color: #333; }
+
+    p { margin: 0.5rem 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin: 0.8rem 0;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    th {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 0.5rem 0.6rem;
+      text-align: left;
+      font-weight: 600;
+    }
+
+    td {
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid #f0f0f0;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    ul, ol {
+      margin: 0.5rem 0 0.5rem 1.2rem;
+    }
+
+    li { margin: 0.2rem 0; }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 0.8rem 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+
+    .stop-box {
+      background: #fff3f3;
+      border-left: 4px solid #e53935;
+      border-radius: 0 8px 8px 0;
+      padding: 0.8rem 1rem;
+      margin: 0.8rem 0;
+      font-size: 0.9rem;
+    }
+
+    .stop-box strong { color: #c62828; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .badge.pending { background: #fff8e1; color: #f57f17; }
+    .badge.blocked { background: #fce4ec; color: #c62828; }
+
+    hr { border: none; border-top: 1px solid #e0e0e0; margin: 1.2rem 0; }
+
+    code { background: #f0f0f0; padding: 0.1rem 0.3rem; border-radius: 3px; font-size: 0.85rem; }
+
+    strong { font-weight: 600; }
+
+    @media (max-width: 480px) {
+      table { font-size: 0.82rem; }
+      th, td { padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ben's Rehab</h1>
+    <nav>
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Today</a>
+      <a href="/plan/" {% if page.url == "/plan/" %}class="active"{% endif %}>Plan</a>
+      <a href="/history/" {% if page.url == "/history/" %}class="active"{% endif %}>History</a>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+</body>
+</html>

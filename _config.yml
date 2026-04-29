@@ -1,0 +1,22 @@
+title: Ben's Rehab
+description: Rehab and marathon training plan
+url: "https://rehab.robotparade.co.uk"
+baseurl: ""
+
+theme: minima
+
+collections:
+  sessions:
+    output: true
+    permalink: /sessions/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: sessions
+    values:
+      layout: session
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
