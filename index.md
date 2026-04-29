@@ -129,6 +129,10 @@ let timerPhase = 0;
 let timerRemaining = 0;
 
 function parseSecs(text) {
+  // Only treat the cell as a duration if it *starts* with a number or set pattern
+  // e.g. "60 sec each side", "2 × 20 sec", "1 min 30 sec"
+  // Rejects cue text like "Pause 2 sec at top."
+  if (!/^\d/.test(text.trim())) return 0;
   let s = 0;
   const m = text.match(/(\d+)\s*min/);
   const sec = text.match(/(\d+)\s*sec/);
