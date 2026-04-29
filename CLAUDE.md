@@ -108,7 +108,7 @@ Plan moves through three phases: rehab → general fitness base → run-specific
 - Age 50
 - 183cm, 105kg
 - Asthma: Generally well controlled with inhalers, but exercise is a trigger
-- Movement background: some  gymnastics coaching experience (no longer actively coaching), so generally movement-competent and comfortable with strength/mobility work. Have completed triathlons and a marathon in the past, but 10 years ago.
+- Movement background: gymnastics coaching experience (no longer actively coaching), so generally movement-competent and comfortable with strength/mobility work. Previously participated in adult gymnastics classes — stopped due to knee injury, returning to gymnastics is a goal. Have completed triathlons and a marathon in the past, but 10 years ago.
 - Current cardiovascular fitness: walk the dog for 2 miles every day.
 - Current strength training: Never really lifted. Core strength generally quite floor.
 - Sleep / stress baseline: Very busy work life, plus family life. Don't sleep as much as I should.
@@ -118,17 +118,18 @@ Plan moves through three phases: rehab → general fitness base → run-specific
 
 Ranked:
 1. Resolve or substantially improve long-standing knee pain
-2. Complete the London Marathon, 12 months out
-3. Manage diastasis recti appropriately through the build
-4. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
+2. Return to adult gymnastics classes
+3. Complete the London Marathon, 12 months out
+4. Manage diastasis recti appropriately through the build
+5. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
 
 ## Constraints
 
 - Sessions per week: 2 or 3
-- Time per session: 60-90 minuyrd
-- Days/times that are fixed or off-limits: Currently at the gym 3 days a week, Monday, Thursday and Saturday, where I can have free access to the gym
-- Equipment access: Fully equipped gymnastics club.
-- Running surfaces available: Sprung floor, roads, some trails
+- Time per session: 60–90 minutes
+- Days/times: Monday, Thursday, Saturday — free access to the gymnastics club
+- Equipment access: Fully equipped gymnastics club. All gymnastics apparatus available (floor, bars, beam, vault, trampolines, foam pit, etc.). No cardio machines — no treadmill, rowing machine, or similar.
+- Running surfaces available: Sprung floor (indoor), roads, some trails
 
 ## Injury history and current rehab focus
 
