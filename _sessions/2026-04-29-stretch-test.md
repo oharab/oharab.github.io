@@ -18,4 +18,4 @@ date: 2026-04-29
 | Standing quad stretch | 30 sec each side | Hold ankle, keep knees together, stand tall. | [x] |
 | Doorway chest opener | 45 sec | Arms at 90°, lean gently into doorframe. Breathe out as you open. | [x] |
 | Supine figure-4 stretch | 45 sec each side | On your back, cross ankle over opposite knee, draw legs toward chest. | [x] |
-| Neck rolls | 30 sec | Slow, controlled — ear to shoulder each side. No full circles. | [x] |
+| Neck rolls | 30 sec | Slow, controlled — ear to shoulder each side. No full circles. | [ ] |
