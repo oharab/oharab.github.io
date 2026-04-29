@@ -397,6 +397,36 @@
       border-color: #1a1a2e;
     }
 
+    /* Expandable cue rows */
+    tr.has-cue { cursor: pointer; }
+    tr.has-cue:active { background: #f0f4ff; }
+    tr.cue-open td { border-bottom: none; }
+
+    .cue-cell {
+      background: #f0f4ff;
+      color: #333;
+      font-size: 0.85rem;
+      font-style: italic;
+      padding: 0.5rem 0.8rem 0.7rem;
+      border-top: 1px dashed #c0cce8;
+      line-height: 1.5;
+    }
+
+    /* Small "tap for cues" hint on mobile — only shown when cues are hidden */
+    @media (max-width: 600px) {
+      tr.has-cue td[data-col="exercise"]::after,
+      tr.has-cue td[data-col="check"]::after {
+        content: ' ›';
+        color: #aaa;
+        font-size: 0.75rem;
+      }
+      tr.has-cue.cue-open td[data-col="exercise"]::after,
+      tr.has-cue.cue-open td[data-col="check"]::after {
+        content: ' ‹';
+        color: #888;
+      }
+    }
+
     @media (max-width: 600px) {
       table { font-size: 0.82rem; }
       th, td { padding: 0.4rem 0.5rem; }

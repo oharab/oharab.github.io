@@ -121,15 +121,51 @@ function injectInteractivity() {
   injectKneeRatings();
 }
 
+const CUE_COLS = ['cues', 'notes', 'what to do', 'what to note'];
+
 function tagTableColumns() {
   contentEl.querySelectorAll('table').forEach(table => {
     const headers = [...table.querySelectorAll('th')];
+    let cueColIndex = -1;
+
     headers.forEach((th, i) => {
       const key = th.textContent.trim().toLowerCase();
       th.dataset.col = key;
       table.querySelectorAll('tr').forEach(row => {
         const cells = row.querySelectorAll('th, td');
         if (cells[i]) cells[i].dataset.col = key;
+      });
+      if (CUE_COLS.includes(key)) cueColIndex = i;
+    });
+
+    if (cueColIndex === -1) return;
+    const colCount = headers.length;
+
+    // Add expandable cue row after each data row
+    table.querySelectorAll('tr').forEach(row => {
+      if (row.querySelector('th')) return; // skip header row
+      const cells = row.querySelectorAll('td');
+      if (!cells[cueColIndex]) return;
+      const cueText = cells[cueColIndex].textContent.trim();
+      if (!cueText) return;
+
+      const cueRow = document.createElement('tr');
+      cueRow.className = 'cue-row';
+      cueRow.style.display = 'none';
+      const cueTd = document.createElement('td');
+      cueTd.colSpan = colCount;
+      cueTd.className = 'cue-cell';
+      cueTd.textContent = cueText;
+      cueRow.appendChild(cueTd);
+      row.after(cueRow);
+
+      row.classList.add('has-cue');
+      row.addEventListener('click', e => {
+        // Don't toggle if tapping a button, link, input or checkbox
+        if (e.target.closest('a, button, input')) return;
+        const isOpen = cueRow.style.display !== 'none';
+        cueRow.style.display = isOpen ? 'none' : 'table-row';
+        row.classList.toggle('cue-open', !isOpen);
       });
     });
   });
