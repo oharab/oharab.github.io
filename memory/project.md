@@ -9,7 +9,7 @@ type: project
 ## Key files
 - `CLAUDE.md` — steering document (profile, constraints, injury history, red flags). Read this first.
 - `plan.md` — objectives hierarchy (long/medium/short term), phase gates, session log index.
-- `sessions/` — one file per session, named `YYYY-MM-DD-session-N.md`.
+- `_sessions/` — one file per session, named `YYYY-MM-DD-session-N.md`. Note the underscore prefix — required by Jekyll.
 
 ## Current state (as of 2026-04-29)
 - Phase 1: rehab / movement screen — pre-programming.

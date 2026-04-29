@@ -9,7 +9,7 @@ This is not a software project. It is a personal rehab and marathon training pla
 - `CLAUDE.md` — this file; the steering document. Read fully before responding to any training or rehab question.
 - `plan.md` — objectives hierarchy (long/medium/short term) and phase gates. Read this to understand where we are in the plan.
 - `memory/MEMORY.md` — project memory index. Check for up-to-date context.
-- `sessions/` — one file per session, named `YYYY-MM-DD-session-N.md`.
+- `_sessions/` — one file per session, named `YYYY-MM-DD-session-N.md`. Note the underscore prefix — required by Jekyll.
 
 ## How to assist in this repo
 
