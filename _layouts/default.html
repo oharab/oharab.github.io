@@ -145,6 +145,30 @@
       border-left: 3px solid #1a1a2e;
     }
 
+    .upcoming-box {
+      background: #fff;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      margin: 0.6rem 0 1rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      font-size: 0.9rem;
+    }
+
+    .upcoming-box summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: #1a1a2e;
+      padding: 0.2rem 0;
+    }
+
+    .upcoming-box ul {
+      margin: 0.6rem 0 0.2rem 1rem;
+    }
+
+    .upcoming-box a {
+      color: #1a1a2e;
+    }
+
     @media (max-width: 480px) {
       table { font-size: 0.82rem; }
       th, td { padding: 0.4rem 0.5rem; }
@@ -155,7 +179,7 @@
   <header>
     <h1>Ben's Rehab</h1>
     <nav>
-      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Next Session</a>
+      <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Today</a>
       <a href="/plan/" {% if page.url == "/plan/" %}class="active"{% endif %}>Plan</a>
       <a href="/history/" {% if page.url == "/history/" %}class="active"{% endif %}>History</a>
     </nav>
