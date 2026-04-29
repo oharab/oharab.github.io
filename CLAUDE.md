@@ -36,17 +36,20 @@ date: YYYY-MM-DD
 ---
 ```
 
-**Exercise tables must include a `Done` column** with `[ ]` for every exercise row. This powers the checkbox system on the site:
+**Exercise tables must include a `Demo` and `Done` column** as the last two columns. `Demo` links to a YouTube video; `Done` powers the checkbox system:
 
 ```markdown
-| Exercise | Sets × Reps | Load | Notes | Done |
-|---|---|---|---|---|
-| Glute bridge | 2 × 10 | Bodyweight | Drive through heels. | [ ] |
+| Exercise | Sets × Reps | Load | Cues | Demo | Done |
+|---|---|---|---|---|---|
+| Glute bridge | 2 × 10 | Bodyweight | Drive through heels. | https://www.youtube.com/watch?v=NXwR65L7I-s | [ ] |
 ```
 
-- The `Done` column must be the last column in every exercise table.
-- Use `[ ]` (not done) or `[x]` (done) — exact format, including spaces.
-- Assessment check tables (e.g. Block 3 diastasis checks) should also have a `Done` column.
+- `Demo` is always second-to-last; `Done` is always last.
+- `Demo` must contain a plain YouTube URL (not a markdown link) — the site converts it to a ▶ button automatically.
+- If no suitable video exists for an exercise, leave `Demo` empty: `| |`
+- When writing a session, use WebSearch to find physio-quality YouTube demos for each exercise. Prefer channels like Tim Keeley Physio REHAB, or similar sports rehab channels with clear form cues.
+- Use `[ ]` (not done) or `[x]` (done) in the `Done` column — exact format, including spaces.
+- Assessment check tables (e.g. Block 3 diastasis checks) should also have `Demo` and `Done` columns.
 
 **Every session must end with this session log table** — the Value column is editable on the site:
 

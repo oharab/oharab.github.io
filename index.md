@@ -114,8 +114,19 @@ if (active) {
 
 function injectInteractivity() {
   injectCheckboxes();
+  injectDemoLinks();
   injectLogInputs();
   injectKneeRatings();
+}
+
+function injectDemoLinks() {
+  if (!active) return;
+  contentEl.querySelectorAll('td').forEach(td => {
+    const text = td.textContent.trim();
+    if (!/^https?:\/\/(www\.)?(youtu\.be|youtube\.com)/.test(text)) return;
+    td.innerHTML = `<a href="${text}" target="_blank" rel="noopener" class="demo-link" aria-label="Watch demo">▶</a>`;
+    td.style.textAlign = 'center';
+  });
 }
 
 function injectCheckboxes() {
