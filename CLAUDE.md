@@ -136,7 +136,7 @@ Gymnastics is not a standalone goal with a milestone. As the knee becomes more r
 
 **Diastasis recti**
 - Severity / gap: Gap runs from navel upward, approximately 4–5 fingers long. Assessed Session 1 (2026-04-30).
-- Currently being managed by: None
+- Currently being managed by: None. GP declined referral (classified as cosmetic). No professional input expected in the near term. Programming must be self-guided and conservative.
 - Known aggravators: Hollow body hold (pressure at and below navel); dead bug single-arm extension (tension at top/upper end of gap). Heel slide had no effect.
 - Cleared / not cleared movements: Heel slide — cleared. Dead bug single arm — manageable but needs monitoring (tension at top of gap). Hollow body hold — proceed with caution; mild doming present but controllable with deliberate bracing. No loaded core work until physio input.
 
