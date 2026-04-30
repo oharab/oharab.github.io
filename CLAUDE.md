@@ -135,17 +135,18 @@ Gymnastics is not a standalone goal with a milestone. As the knee becomes more r
 ## Injury history and current rehab focus
 
 **Diastasis recti**
-- Severity / gap: <!-- placeholder -->
+- Severity / gap: Gap runs from navel upward, approximately 4–5 fingers long. Assessed Session 1 (2026-04-30).
 - Currently being managed by: None
-- Known aggravators: <!-- placeholder -->
-- Cleared / not cleared movements: <!-- placeholder -->
+- Known aggravators: Hollow body hold (pressure at and below navel); dead bug single-arm extension (tension at top/upper end of gap). Heel slide had no effect.
+- Cleared / not cleared movements: Heel slide — cleared. Dead bug single arm — manageable but needs monitoring (tension at top of gap). Hollow body hold — proceed with caution; mild doming present but controllable with deliberate bracing. No loaded core work until physio input.
 
 **Knee pain (long-standing)**
-- Which knee, or both: Right knww
-- Working diagnosis: Weak  glute chain causing knee tracking to be out.
-- What aggravates it: Exercise
-- What helps: Rest
+- Which knee, or both: Right knee
+- Working diagnosis: Weak glute chain causing knee tracking to be out.
+- What aggravates it: Exercise. Half-kneeling on right knee on hard surface — patella feels pushed up from below (pressure pain, not joint pain). Knee warm after Session 1 but not sore.
+- What helps: Rest. Padding under right knee resolves the kneeling discomfort.
 - What's been tried: Aquatherapy (little relief)
+- Session 1 result: 2/10 throughout blocks 1 and 2. Knee warm ~1hr post-session, not sore.
 
 **Other history worth knowing**
 - <!-- placeholder: old injuries, surgeries, anything else relevant -->
@@ -162,17 +163,17 @@ Claude is not my physio. Anything new, sharp, or worsening goes to a human first
 
 ## Programming preferences
 
-- Level of prescription: <!-- placeholder: spelled-out sets/reps/load, or framework with autoregulation? -->
-- Loading style: <!-- placeholder: RPE, %1RM, or feel-based -->
-- Plan horizon: <!-- placeholder: weekly block, daily as we go, etc. -->
+- Level of prescription: Fully spelled-out sets/reps/load with cues — confirmed working in Session 1.
+- Loading style: Feel-based / RPE for now (no gym history to base %1RM on).
+- Plan horizon: Session by session for now (Phase 1 rehab).
 - Progression rules: <!-- placeholder: e.g. "advance when X for two sessions in a row" -->
 - Missed sessions: <!-- placeholder: skip, shift, or compress -->
-- Format I want plans delivered in: <!-- placeholder: markdown table, prose, structured per-session, etc. -->
+- Format I want plans delivered in: Markdown table with Sets × Reps, Load, Cues, Demo (YouTube URL), Done checkbox — confirmed working in Session 1.
 
 ## Red flags and back-off rules
 
 Stop or modify the session if:
-- Knee pain above <!-- placeholder: e.g. 3/10 -->, or any sharp/locking/giving-way sensation
+- Knee pain above 3/10, or any sharp/locking/giving-way sensation
 - Diastasis doming, coning, or any visible bulging along the linea alba
 - Pain that's worse 24h after a session than during it
 - <!-- add others as they emerge -->
@@ -202,6 +203,6 @@ After each session I'll log:
 
 ## Current block
 
-- Phase: rehab / movement screen — pre-programming
-- This week: gathering baseline information and clinician input before the first programmed block
-- Recent changes: 
+- Phase: rehab / movement screen — Session 1 complete
+- Sessions completed: 1
+- Recent changes: Session 1 (2026-04-30) completed. Baseline screen done. Knee held at 2/10. Diastasis aggravators mapped. Programming preferences confirmed. Placeholders updated. 

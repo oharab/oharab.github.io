@@ -53,19 +53,19 @@ Phase transitions are gated on milestones, not the calendar.
 
 | Priority | Objective | Done when |
 |---|---|---|
-| 1 | Complete movement screen baseline | Session 1 log filled in with knee and diastasis observations |
-| 2 | Fill in all placeholder fields in `CLAUDE.md` | No `<!-- placeholder -->` entries remain |
-| 3 | Establish glute activation baseline | Can perform glute bridge and clamshell with no pain and note any asymmetry |
-| 4 | Understand diastasis aggravators | Doming/coning mapped to specific movements |
-| 5 | Get physio direction on exercises | Physio appointment completed and notes added to `CLAUDE.md` |
+| 1 | Complete movement screen baseline | Session 1 log filled in with knee and diastasis observations | **Done** |
+| 2 | Fill in all placeholder fields in `CLAUDE.md` | No `<!-- placeholder -->` entries remain | Partial — medical/physio fields still pending |
+| 3 | Establish glute activation baseline | Can perform glute bridge and clamshell with no pain and note any asymmetry | **Done** — knee 2/10, no asymmetry flagged yet |
+| 4 | Understand diastasis aggravators | Doming/coning mapped to specific movements | **Done** — hollow body and dead bug mapped |
+| 5 | Get physio direction on exercises | Physio appointment completed and notes added to `CLAUDE.md` | Pending |
 
 ---
 
 ## Where we are now
 
-**Current phase:** Rehab / movement screen — pre-programming  
-**Sessions completed:** 0  
-**Next session:** Session 1 — Thursday 30 April 2026
+**Current phase:** Rehab / movement screen — baseline established  
+**Sessions completed:** 1  
+**Next session:** Session 2 — Saturday 3 May 2026
 
 ---
 
