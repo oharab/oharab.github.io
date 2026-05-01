@@ -138,7 +138,8 @@ Gymnastics is not a standalone goal with a milestone. As the knee becomes more r
 - Severity / gap: Gap runs from navel upward, approximately 4–5 fingers long. Assessed Session 1 (2026-04-30).
 - Currently being managed by: None. GP declined referral (classified as cosmetic). No professional input expected in the near term. Programming must be self-guided and conservative.
 - Known aggravators: Hollow body hold (pressure at and below navel); dead bug single-arm extension (tension at top/upper end of gap). Heel slide had no effect.
-- Cleared / not cleared movements: Heel slide — cleared. Dead bug single arm — manageable but needs monitoring (tension at top of gap). Hollow body hold — proceed with caution; mild doming present but controllable with deliberate bracing. No loaded core work until physio input.
+- Cleared / not cleared movements: Heel slide — cleared. Dead bug single arm — manageable; visible coning during Session 1 but controllable with deliberate bracing. Hollow body hold — proceed with caution; mild doming present but controllable with deliberate bracing. No loaded core work until physio input.
+- Operative signal for progression: **Coning, not just doming.** Visible coning that you can control with bracing is the current baseline — not a stop signal. Progression rule: hold volume if coning is visible-but-controllable; only progress reps/sets when a session is fully clean (no visible coning); regress if coning becomes uncontrollable.
 
 **Knee pain (long-standing)**
 - Which knee, or both: Right knee
@@ -174,7 +175,7 @@ Claude is not my physio. Anything new, sharp, or worsening goes to a human first
 
 Stop or modify the session if:
 - Knee pain above 3/10, or any sharp/locking/giving-way sensation
-- Diastasis doming, coning, or any visible bulging along the linea alba
+- Diastasis coning that you cannot control with bracing, or any sharp pain along the linea alba (visible-but-controllable coning is the current baseline — see Diastasis recti section for the progression rule)
 - Pain that's worse 24h after a session than during it
 - <!-- add others as they emerge -->
 
@@ -205,4 +206,4 @@ After each session I'll log:
 
 - Phase: rehab / movement screen — Session 1 complete
 - Sessions completed: 1
-- Recent changes: Session 1 (2026-04-30) completed. Baseline screen done. Knee held at 2/10. Diastasis aggravators mapped. Programming preferences confirmed. Placeholders updated. 
+- Recent changes: Session 1 (2026-04-30) completed. Baseline screen done. Knee held at 2/10 during, **dropped to 1/10 at 24h** — strong recovery signal, current loading well below tolerance. Diastasis aggravators mapped — visible coning during dead bug single-arm but controllable with bracing. RPE 5–6 ("could go a little harder"). Programming preferences confirmed. Sessions 2–5 drafts updated 2026-05-01 with nuanced coning progression gates. 
