@@ -17,11 +17,18 @@ type: user
 
 ## Goals (ranked)
 1. Resolve or substantially improve right knee pain
-2. Complete London Marathon, Sunday 25 April 2027
-3. Manage diastasis recti through the build
-4. Weight reduction as a side effect (no targets)
+2. Manage diastasis recti through the build
+3. Run a continuous 5k (no walk breaks) — waypoint goal
+4. Run a continuous 10k (no walk breaks) — waypoint goal
+5. Complete London Marathon, Sunday 25 April 2027 — Jeffing acceptable
+6. Strict ring pull-up — parallel strength track, not gated to running phase
+7. Weight reduction as a side effect (no targets)
 
-Gymnastics is not a milestone goal. As the knee strengthens, gymnastics elements should be woven progressively into sessions — floor conditioning, tumbling prep, bar/ring work, trampoline. Readiness drives introduction, not the calendar.
+Continuous 5k/10k are earned through run-walk progression, not by skipping it. Marathon is happy to be Jeffed.
+
+Ring pull-up uses the comp-level rings installed at the club 2026-05. Progression: dead hang → scapular pull → band-assisted → negatives → strict. At 105kg this is multi-month work.
+
+Other gymnastics work (floor conditioning, tumbling prep, bar work, trampoline) is woven in progressively as knee/glute strength supports it. No fixed timeline.
 
 ## Equipment and access
 - Training venue: fully equipped gymnastics club (Mon/Thu/Sat)

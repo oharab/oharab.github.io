@@ -4,7 +4,15 @@ description: High-level context for Ben's rehab, marathon training plan, and web
 type: project
 ---
 
-# Project: Ben's rehab → London Marathon 2027
+# Project: Ben's rehab → London Marathon 2027 (+ continuous 5k/10k, ring pull-up)
+
+## Goals (added 2026-05-01)
+Beyond the marathon (which Ben is happy to Jeff), three additional waypoint goals:
+- **Continuous 5k** (no walk breaks) — earned through run-walk progression, not skipped
+- **Continuous 10k** (no walk breaks) — same rule
+- **Strict ring pull-up** on the comp-level rings installed 2026-05 — runs as a parallel strength track through all phases, paced by shoulder/scapular control and grip, not the running phase
+
+Phase 2 reframed from "general aerobic base" to "build to continuous 5k → continuous 10k" — these become the Phase 2→3 gate criteria.
 
 ## Key files
 - `CLAUDE.md` — steering document (profile, constraints, injury history, red flags, session file format). Read this first.

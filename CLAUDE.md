@@ -118,18 +118,25 @@ Plan moves through three phases: rehab → general fitness base → run-specific
 
 Ranked:
 1. Resolve or substantially improve long-standing knee pain
-2. Complete the London Marathon, 12 months out
-3. Manage diastasis recti appropriately through the build
-4. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
+2. Manage diastasis recti appropriately through the build
+3. Run a continuous 5k (no walk breaks) — waypoint goal
+4. Run a continuous 10k (no walk breaks) — waypoint goal
+5. Complete the London Marathon, 12 months out — Jeffing (run-walk) is acceptable
+6. Strict pull-up on the rings (comp-level set, installed 2026-05) — parallel strength track
+7. Lose weight as a side effect of training (not a primary driver — no calorie targets, see Out of scope)
 
-Gymnastics is not a standalone goal with a milestone. As the knee becomes more robust, gymnastics elements should be woven progressively into sessions — floor conditioning, basic tumbling prep, bar and ring work, trampoline. The venue makes this natural. Introduce gymnastics content when knee stability and glute strength support it, not on a fixed timeline.
+The continuous 5k and 10k are not stepping stones to be skipped — they're earned through the run-walk progression. Don't bypass run-walk to chase continuous running.
+
+The ring pull-up runs as a parallel strength track through all phases. Apparatus block in each session feeds it (dead hang → scapular pull → band-assisted → negatives → full). Progression is paced by shoulder/scapular control and grip endurance, not the running phase.
+
+Gymnastics beyond the ring pull-up is not a standalone goal with a milestone. As the knee becomes more robust, other gymnastics elements (floor conditioning, basic tumbling prep, bar work, trampoline) should be woven progressively into sessions when knee stability and glute strength support it, not on a fixed timeline.
 
 ## Constraints
 
 - Sessions per week: 2 or 3
 - Time per session: 60–90 minutes
 - Days/times: Monday, Thursday, Saturday — free access to the gymnastics club
-- Equipment access: Fully equipped gymnastics club. All gymnastics apparatus available (floor, bars, beam, vault, trampolines, foam pit, etc.). No cardio machines — no treadmill, rowing machine, or similar.
+- Equipment access: Fully equipped gymnastics club. All gymnastics apparatus available (floor, bars, beam, vault, trampolines, foam pit, etc.). **Comp-level set of rings installed 2026-05** — the pull-up goal lives here. No cardio machines — no treadmill, rowing machine, or similar.
 - Running surfaces available: Sprung floor (indoor), roads, some trails
 
 ## Injury history and current rehab focus

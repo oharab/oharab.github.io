@@ -6,7 +6,7 @@ permalink: /plan/
 
 # Training Plan — Objectives & Progress
 
-Last updated: 2026-04-29
+Last updated: 2026-05-01
 
 ---
 
@@ -15,11 +15,18 @@ Last updated: 2026-04-29
 | # | Objective | Success criteria | Status |
 |---|---|---|---|
 | 1 | Resolve or substantially improve right knee pain | Knee pain ≤ 1/10 during moderate running load | Not started |
-| 2 | Complete the London Marathon (Sunday 25 April 2027) | Cross the finish line | Not started |
-| 3 | Manage diastasis recti safely through the build | No doming/coning at any load reached in training | Not started |
-| 4 | Weight reduction as a side effect of training | Trending down — no specific target | Not started |
+| 2 | Manage diastasis recti safely through the build | No uncontrollable coning at any load reached in training | In progress — visible-but-controllable coning is current baseline |
+| 3 | Run a continuous 5k (no walk breaks) | Complete 5k without stopping or walking | Not started |
+| 4 | Run a continuous 10k (no walk breaks) | Complete 10k without stopping or walking | Not started |
+| 5 | Complete the London Marathon (Sunday 25 April 2027) — Jeffing acceptable | Cross the finish line | Not started |
+| 6 | Strict ring pull-up | One full pull-up on the rings, dead hang to chin over rings | Not started — apparatus block seeding |
+| 7 | Weight reduction as a side effect of training | Trending down — no specific target | Not started |
 
-Gymnastics is not a separate objective — as the knee becomes more robust, gymnastics elements (floor conditioning, tumbling prep, bar/ring work, trampoline) are introduced progressively into sessions. No fixed timeline; readiness drives it.
+The continuous 5k/10k are waypoint goals, not stepping stones to be skipped. They're earned through the run-walk progression — don't bypass run-walk to chase continuous running.
+
+The ring pull-up runs as a **parallel strength track** through all phases. Apparatus block in each session feeds it. Progression is paced by shoulder/scapular control and grip endurance, not by the running phase.
+
+Other gymnastics work (floor conditioning, tumbling prep, bar work, trampoline) is woven in progressively as knee stability and glute strength support it. No fixed timeline.
 
 ---
 
@@ -37,15 +44,17 @@ Phase transitions are gated on milestones, not the calendar.
 | Physio sign-off on progression to general fitness loading | Pending — awaiting physio input |
 | GP cleared for progressive cardiovascular training | Pending — not confirmed |
 
-### Phase 2 → Phase 3 gate: General base to run-specific training
+### Phase 2 → Phase 3 gate: Continuous-distance base to marathon-specific training
 
-*(Not yet defined — set these once Phase 1 criteria are clearer)*
+Phase 2 is reframed: it's no longer "general aerobic base" but **build to continuous 5k → continuous 10k.** These two waypoints become the gate criteria.
 
 | Gate criterion | Status |
 |---|---|
-| Sustained aerobic base (to be defined) | Not yet defined |
-| Knee holds up under run-walk load | Not yet defined |
-| Diastasis cleared for impact work | Not yet defined |
+| Run-walk progression sustained for 4+ weeks without knee flare | Not yet assessed |
+| Continuous 5k achieved without stopping | Not yet assessed |
+| Continuous 10k achieved without stopping | Not yet assessed |
+| Knee holds up at 24h after each session of run load | Not yet assessed |
+| Diastasis still controllable under impact load | Not yet assessed |
 
 ---
 
@@ -74,5 +83,21 @@ Phase transitions are gated on milestones, not the calendar.
 | Phase | Focus | Entry gate | Exit gate |
 |---|---|---|---|
 | 1 — Rehab | Knee and diastasis rehab, glute chain, movement quality | Now | Phase 1→2 gate above |
-| 2 — General base | Aerobic base, general strength, body composition | Phase 1 gate | Phase 2→3 gate above |
-| 3 — Run-specific | Marathon-specific build | Phase 2 gate | Race day |
+| 2 — Continuous-distance base | Build to continuous 5k, then continuous 10k. General strength, body composition | Phase 1 gate | Phase 2→3 gate above |
+| 3 — Run-specific | Marathon-specific build (Jeffing strategy acceptable) | Phase 2 gate | Race day |
+
+---
+
+## Parallel strength track — ring pull-up
+
+Runs alongside all three phases. Apparatus block in each session feeds it. Progression is paced by shoulder/scapular control and grip endurance, not the running phase.
+
+| Stage | Target | Status |
+|---|---|---|
+| 1 — Passive dead hang | 3 × 30 sec on rings, comfortable shoulder position | Session 1: 30 sec achieved (grip-limited); Sessions 2–5: building back up in 20–25 sec sets |
+| 2 — Active scapular pull | Initiate the pull from depressed scapulae before the elbows bend | Not started |
+| 3 — Band-assisted pull-up | Full ROM with progressively lighter band | Not started |
+| 4 — Eccentric (negative) pull-up | 3–5 sec lower from chin-over-rings to dead hang | Not started |
+| 5 — Strict ring pull-up | Dead hang to chin over rings, no kip | **Goal** |
+
+Body weight is currently 105kg; this is a multi-month progression. Progress when the current stage is comfortable across two consecutive sessions, not on the calendar.
