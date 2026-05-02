@@ -74,7 +74,7 @@ Phase 2 is reframed: it's no longer "general aerobic base" but **build to contin
 
 **Current phase:** Rehab / movement screen — baseline established  
 **Sessions completed:** 1  
-**Next session:** Session 2 — Saturday 3 May 2026
+**Next session:** Session 2 — Monday 4 May 2026 (rescheduled from Sat 3 May)
 
 ---
 

@@ -41,7 +41,7 @@ The repo is a Jekyll site hosted on GitHub Pages at `rehab.robotparade.co.uk` (r
 ## Current state (as of 2026-05-01)
 - Phase 1: rehab / movement screen — Session 1 complete, draft sessions 2–5 in place.
 - Sessions completed: 1 (2026-04-30). 24h-after log filled in 2026-05-01.
-- Next session: Session 2 — Saturday 3 May 2026.
+- Next session: Session 2 — Monday 4 May 2026 (rescheduled from Sat 3 May due to competing priorities; Sessions 3–5 shifted to Thu 7, Sat 9, Mon 11 May to preserve Mon/Thu/Sat rhythm).
 
 ## Session 1 → forward signals
 - **Knee:** 2/10 during, **1/10 at 24h** — recovered, not aggravated. Current loading is well below knee tolerance; progression as planned is safe.
